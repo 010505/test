@@ -1,2 +1,2 @@
 # test
-try to create a repository
+this is a test for YingLan to create a repostory

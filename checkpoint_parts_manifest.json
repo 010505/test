@@ -1,0 +1,153 @@
+{
+  "format_version": 1,
+  "chunking": "raw byte concatenation",
+  "files": [
+    {
+      "path": "runs/improvement_backbones_ddnet/00_stgcn_control/best.pt",
+      "size": 860865,
+      "sha256": "ee261f1c0af5356e459526026815bcc63b87bed71df23e347e6fe05e7214d68a",
+      "parts": [
+        "runs/improvement_backbones_ddnet/00_stgcn_control/best.pt.part001",
+        "runs/improvement_backbones_ddnet/00_stgcn_control/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet/01_spectral_pe/best.pt",
+      "size": 873977,
+      "sha256": "bfe2d5db947d0194968bcbdea91b891171f40a50fa841e06239c1ed947d2e1c2",
+      "parts": [
+        "runs/improvement_backbones_ddnet/01_spectral_pe/best.pt.part001",
+        "runs/improvement_backbones_ddnet/01_spectral_pe/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet/02_qkv_spatial_attention/best.pt",
+      "size": 1120023,
+      "sha256": "ce46a832da4900d8049047ceeafcad135c9c51f34e31ecd21b424ca6220cf8c4",
+      "parts": [
+        "runs/improvement_backbones_ddnet/02_qkv_spatial_attention/best.pt.part001",
+        "runs/improvement_backbones_ddnet/02_qkv_spatial_attention/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet/03_gwnet_adaptive_support/best.pt",
+      "size": 1164565,
+      "sha256": "ec1d70cef9f54bf67a4b6806943c8aaf7cdd1d507a35f8922f7bcb3c1d0ece1a",
+      "parts": [
+        "runs/improvement_backbones_ddnet/03_gwnet_adaptive_support/best.pt.part001",
+        "runs/improvement_backbones_ddnet/03_gwnet_adaptive_support/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet/04_agcrn_factorized_adjacency/best.pt",
+      "size": 3755261,
+      "sha256": "d0e109c3e0fce26ff7f6867bcde47bf446414bb79c844eed4ada22008dd21b95",
+      "parts": [
+        "runs/improvement_backbones_ddnet/04_agcrn_factorized_adjacency/best.pt.part001",
+        "runs/improvement_backbones_ddnet/04_agcrn_factorized_adjacency/best.pt.part002",
+        "runs/improvement_backbones_ddnet/04_agcrn_factorized_adjacency/best.pt.part003",
+        "runs/improvement_backbones_ddnet/04_agcrn_factorized_adjacency/best.pt.part004",
+        "runs/improvement_backbones_ddnet/04_agcrn_factorized_adjacency/best.pt.part005",
+        "runs/improvement_backbones_ddnet/04_agcrn_factorized_adjacency/best.pt.part006"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet_seed43/00_stgcn_control/best.pt",
+      "size": 860865,
+      "sha256": "368c6ed40fa3c7ba1cd94ca22338f02dd870f16c43122eb183188672e8e72fa5",
+      "parts": [
+        "runs/improvement_backbones_ddnet_seed43/00_stgcn_control/best.pt.part001",
+        "runs/improvement_backbones_ddnet_seed43/00_stgcn_control/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet_seed43/01_spectral_pe/best.pt",
+      "size": 873977,
+      "sha256": "e8b226f43f92a9bc10b574dc5f8ffa52546c8e0672120ebed150373b60672673",
+      "parts": [
+        "runs/improvement_backbones_ddnet_seed43/01_spectral_pe/best.pt.part001",
+        "runs/improvement_backbones_ddnet_seed43/01_spectral_pe/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet_seed43/02_qkv_spatial_attention/best.pt",
+      "size": 1120023,
+      "sha256": "6ef110363af5f27ded477d29f6aee098cb3474bed5da1f77c48bcbe197120ec0",
+      "parts": [
+        "runs/improvement_backbones_ddnet_seed43/02_qkv_spatial_attention/best.pt.part001",
+        "runs/improvement_backbones_ddnet_seed43/02_qkv_spatial_attention/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet_seed43/03_gwnet_adaptive_support/best.pt",
+      "size": 1164565,
+      "sha256": "2bcfdc5dfed02a711851d0abe9f8054166fff11acb30084cc7b98abf595c59ca",
+      "parts": [
+        "runs/improvement_backbones_ddnet_seed43/03_gwnet_adaptive_support/best.pt.part001",
+        "runs/improvement_backbones_ddnet_seed43/03_gwnet_adaptive_support/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet_seed43/04_agcrn_factorized_adjacency/best.pt",
+      "size": 3755261,
+      "sha256": "52a3a9e4112f0aa2fc51dedd0aa35989a0fbdd9f37a839e9f038200d17e73f63",
+      "parts": [
+        "runs/improvement_backbones_ddnet_seed43/04_agcrn_factorized_adjacency/best.pt.part001",
+        "runs/improvement_backbones_ddnet_seed43/04_agcrn_factorized_adjacency/best.pt.part002",
+        "runs/improvement_backbones_ddnet_seed43/04_agcrn_factorized_adjacency/best.pt.part003",
+        "runs/improvement_backbones_ddnet_seed43/04_agcrn_factorized_adjacency/best.pt.part004",
+        "runs/improvement_backbones_ddnet_seed43/04_agcrn_factorized_adjacency/best.pt.part005",
+        "runs/improvement_backbones_ddnet_seed43/04_agcrn_factorized_adjacency/best.pt.part006"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet_seed44/00_stgcn_control/best.pt",
+      "size": 860865,
+      "sha256": "f015dc41e545ae0eb0eb95c6b17eeb2fdf1a84883a2ce8b60e3b4455bff13a46",
+      "parts": [
+        "runs/improvement_backbones_ddnet_seed44/00_stgcn_control/best.pt.part001",
+        "runs/improvement_backbones_ddnet_seed44/00_stgcn_control/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet_seed44/01_spectral_pe/best.pt",
+      "size": 873977,
+      "sha256": "33771a7fdf799feeddc0b440362c8cc51172a9ae39284ff0427f20dcc6d7c737",
+      "parts": [
+        "runs/improvement_backbones_ddnet_seed44/01_spectral_pe/best.pt.part001",
+        "runs/improvement_backbones_ddnet_seed44/01_spectral_pe/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet_seed44/02_qkv_spatial_attention/best.pt",
+      "size": 1120023,
+      "sha256": "aa4ec0e1214c781f84020fc27b7c69e46661a1ec830832496a500e4779e4abc0",
+      "parts": [
+        "runs/improvement_backbones_ddnet_seed44/02_qkv_spatial_attention/best.pt.part001",
+        "runs/improvement_backbones_ddnet_seed44/02_qkv_spatial_attention/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet_seed44/03_gwnet_adaptive_support/best.pt",
+      "size": 1164565,
+      "sha256": "45859c2e78c306f0abeb1d278dd7b6e414c9507add4e3aef46f3ad7aaa5e7f09",
+      "parts": [
+        "runs/improvement_backbones_ddnet_seed44/03_gwnet_adaptive_support/best.pt.part001",
+        "runs/improvement_backbones_ddnet_seed44/03_gwnet_adaptive_support/best.pt.part002"
+      ]
+    },
+    {
+      "path": "runs/improvement_backbones_ddnet_seed44/04_agcrn_factorized_adjacency/best.pt",
+      "size": 3755261,
+      "sha256": "665318c86f7a5783c5af4c94ce7aa1e4f47e42ea8e40d9d5e59da31a5ac147b9",
+      "parts": [
+        "runs/improvement_backbones_ddnet_seed44/04_agcrn_factorized_adjacency/best.pt.part001",
+        "runs/improvement_backbones_ddnet_seed44/04_agcrn_factorized_adjacency/best.pt.part002",
+        "runs/improvement_backbones_ddnet_seed44/04_agcrn_factorized_adjacency/best.pt.part003",
+        "runs/improvement_backbones_ddnet_seed44/04_agcrn_factorized_adjacency/best.pt.part004",
+        "runs/improvement_backbones_ddnet_seed44/04_agcrn_factorized_adjacency/best.pt.part005",
+        "runs/improvement_backbones_ddnet_seed44/04_agcrn_factorized_adjacency/best.pt.part006"
+      ]
+    }
+  ]
+}

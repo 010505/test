@@ -1,0 +1,375 @@
+{
+  "input": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\08\\28\\01a04712-a4cc-7b80-963c-8fbba8fbf059\\GestureGraphLab_experiments\\runs\\improvement_backbones_ddnet\\03_gwnet_adaptive_support\\adjacency_matrices.npz",
+  "matrix_shape": [
+    22,
+    22
+  ],
+  "physical": {
+    "minimum": 0.0,
+    "maximum": 0.4999999701976776,
+    "nonzero": 64
+  },
+  "adaptive": {
+    "minimum": 0.0354275219142437,
+    "maximum": 0.0949305072426796,
+    "nonzero": 484,
+    "row_sum_minimum": 0.9999998211860657,
+    "row_sum_maximum": 1.000000238418579,
+    "mean_row_entropy_nats": 3.0741705894470215,
+    "maximum_row_entropy_nats": 3.091042453358316,
+    "mean_absolute_asymmetry": 0.0074842628091573715
+  },
+  "node_labels": [
+    "wrist",
+    "palm",
+    "thumb-1",
+    "thumb-2",
+    "thumb-3",
+    "thumb-tip",
+    "index-1",
+    "index-2",
+    "index-3",
+    "index-tip",
+    "middle-1",
+    "middle-2",
+    "middle-3",
+    "middle-tip",
+    "ring-1",
+    "ring-2",
+    "ring-3",
+    "ring-tip",
+    "little-1",
+    "little-2",
+    "little-3",
+    "little-tip"
+  ],
+  "top_connections": [
+    {
+      "source": 5,
+      "source_name": "thumb-tip",
+      "target": 14,
+      "target_name": "ring-1",
+      "adaptive_weight": 0.0949305072426796,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 4,
+      "source_name": "thumb-3",
+      "target": 9,
+      "target_name": "index-tip",
+      "adaptive_weight": 0.08274533599615097,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 16,
+      "source_name": "ring-3",
+      "target": 11,
+      "target_name": "middle-2",
+      "adaptive_weight": 0.07953441143035889,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 14,
+      "source_name": "ring-1",
+      "target": 6,
+      "target_name": "index-1",
+      "adaptive_weight": 0.07869692891836166,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 10,
+      "source_name": "middle-1",
+      "target": 10,
+      "target_name": "middle-1",
+      "adaptive_weight": 0.07787072658538818,
+      "is_physical_or_self": true
+    },
+    {
+      "source": 13,
+      "source_name": "middle-tip",
+      "target": 21,
+      "target_name": "little-tip",
+      "adaptive_weight": 0.07582581788301468,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 5,
+      "source_name": "thumb-tip",
+      "target": 1,
+      "target_name": "palm",
+      "adaptive_weight": 0.07357679307460785,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 10,
+      "source_name": "middle-1",
+      "target": 18,
+      "target_name": "little-1",
+      "adaptive_weight": 0.07302719354629517,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 5,
+      "source_name": "thumb-tip",
+      "target": 9,
+      "target_name": "index-tip",
+      "adaptive_weight": 0.0728333368897438,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 15,
+      "source_name": "ring-2",
+      "target": 11,
+      "target_name": "middle-2",
+      "adaptive_weight": 0.07227964699268341,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 3,
+      "source_name": "thumb-2",
+      "target": 6,
+      "target_name": "index-1",
+      "adaptive_weight": 0.07185989618301392,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 0,
+      "source_name": "wrist",
+      "target": 16,
+      "target_name": "ring-3",
+      "adaptive_weight": 0.0708598643541336,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 17,
+      "source_name": "ring-tip",
+      "target": 6,
+      "target_name": "index-1",
+      "adaptive_weight": 0.07080937176942825,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 6,
+      "source_name": "index-1",
+      "target": 14,
+      "target_name": "ring-1",
+      "adaptive_weight": 0.0700765997171402,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 19,
+      "source_name": "little-2",
+      "target": 13,
+      "target_name": "middle-tip",
+      "adaptive_weight": 0.07006377726793289,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 20,
+      "source_name": "little-3",
+      "target": 10,
+      "target_name": "middle-1",
+      "adaptive_weight": 0.0698390007019043,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 5,
+      "source_name": "thumb-tip",
+      "target": 8,
+      "target_name": "index-3",
+      "adaptive_weight": 0.06922175735235214,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 2,
+      "source_name": "thumb-1",
+      "target": 10,
+      "target_name": "middle-1",
+      "adaptive_weight": 0.06848234683275223,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 6,
+      "source_name": "index-1",
+      "target": 4,
+      "target_name": "thumb-3",
+      "adaptive_weight": 0.06822718679904938,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 0,
+      "source_name": "wrist",
+      "target": 21,
+      "target_name": "little-tip",
+      "adaptive_weight": 0.0674969032406807,
+      "is_physical_or_self": false
+    }
+  ],
+  "top_nonphysical_connections": [
+    {
+      "source": 5,
+      "source_name": "thumb-tip",
+      "target": 14,
+      "target_name": "ring-1",
+      "adaptive_weight": 0.0949305072426796,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 4,
+      "source_name": "thumb-3",
+      "target": 9,
+      "target_name": "index-tip",
+      "adaptive_weight": 0.08274533599615097,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 16,
+      "source_name": "ring-3",
+      "target": 11,
+      "target_name": "middle-2",
+      "adaptive_weight": 0.07953441143035889,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 14,
+      "source_name": "ring-1",
+      "target": 6,
+      "target_name": "index-1",
+      "adaptive_weight": 0.07869692891836166,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 13,
+      "source_name": "middle-tip",
+      "target": 21,
+      "target_name": "little-tip",
+      "adaptive_weight": 0.07582581788301468,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 5,
+      "source_name": "thumb-tip",
+      "target": 1,
+      "target_name": "palm",
+      "adaptive_weight": 0.07357679307460785,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 10,
+      "source_name": "middle-1",
+      "target": 18,
+      "target_name": "little-1",
+      "adaptive_weight": 0.07302719354629517,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 5,
+      "source_name": "thumb-tip",
+      "target": 9,
+      "target_name": "index-tip",
+      "adaptive_weight": 0.0728333368897438,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 15,
+      "source_name": "ring-2",
+      "target": 11,
+      "target_name": "middle-2",
+      "adaptive_weight": 0.07227964699268341,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 3,
+      "source_name": "thumb-2",
+      "target": 6,
+      "target_name": "index-1",
+      "adaptive_weight": 0.07185989618301392,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 0,
+      "source_name": "wrist",
+      "target": 16,
+      "target_name": "ring-3",
+      "adaptive_weight": 0.0708598643541336,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 17,
+      "source_name": "ring-tip",
+      "target": 6,
+      "target_name": "index-1",
+      "adaptive_weight": 0.07080937176942825,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 6,
+      "source_name": "index-1",
+      "target": 14,
+      "target_name": "ring-1",
+      "adaptive_weight": 0.0700765997171402,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 19,
+      "source_name": "little-2",
+      "target": 13,
+      "target_name": "middle-tip",
+      "adaptive_weight": 0.07006377726793289,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 20,
+      "source_name": "little-3",
+      "target": 10,
+      "target_name": "middle-1",
+      "adaptive_weight": 0.0698390007019043,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 5,
+      "source_name": "thumb-tip",
+      "target": 8,
+      "target_name": "index-3",
+      "adaptive_weight": 0.06922175735235214,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 2,
+      "source_name": "thumb-1",
+      "target": 10,
+      "target_name": "middle-1",
+      "adaptive_weight": 0.06848234683275223,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 6,
+      "source_name": "index-1",
+      "target": 4,
+      "target_name": "thumb-3",
+      "adaptive_weight": 0.06822718679904938,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 0,
+      "source_name": "wrist",
+      "target": 21,
+      "target_name": "little-tip",
+      "adaptive_weight": 0.0674969032406807,
+      "is_physical_or_self": false
+    },
+    {
+      "source": 6,
+      "source_name": "index-1",
+      "target": 5,
+      "target_name": "thumb-tip",
+      "adaptive_weight": 0.06597275286912918,
+      "is_physical_or_self": false
+    }
+  ],
+  "shared_colour_range_for_panels_a_b": {
+    "minimum": 0.0,
+    "maximum": 0.4999999701976776
+  },
+  "note": "The model consumes A_phys and A_adp as separate supports; panel d is descriptive, not an adjacency used by the network."
+}

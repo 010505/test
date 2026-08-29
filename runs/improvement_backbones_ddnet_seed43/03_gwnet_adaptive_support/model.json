@@ -1,0 +1,41 @@
+{
+  "architecture": "gwnet_adaptive_support",
+  "ablation": "none",
+  "dataset": "shrec17_npz",
+  "labels": [
+    "expand",
+    "grab",
+    "pinch",
+    "rotation_ccw",
+    "rotation_cw",
+    "shake",
+    "swipe_down",
+    "swipe_left",
+    "swipe_plus",
+    "swipe_right",
+    "swipe_up",
+    "swipe_v",
+    "swipe_x",
+    "tap"
+  ],
+  "frames": 64,
+  "best_validation_accuracy": 0.8107416879795396,
+  "official_test_accuracy": 0.7226190476190476,
+  "samples": 2800,
+  "parameters": 282703,
+  "epochs": 40,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "seed": 43,
+  "device": "cuda",
+  "python_version": "3.13.13",
+  "torch_version": "2.11.0+cu130",
+  "cuda_device": "NVIDIA GeForce RTX 3090",
+  "deterministic_cudnn": true,
+  "model_config": {
+    "pe_dim": 8,
+    "attention_heads": 4,
+    "adaptive_dim": 10,
+    "spectral_weighting": "laplacian_eigenvalue"
+  }
+}

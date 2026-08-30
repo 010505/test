@@ -82,11 +82,8 @@ class DiscoverSamplesTests(unittest.TestCase):
             # both bad files should be reported together, not just the first one hit
             message = str(context.exception)
             self.assertEqual(message.count("\n- "), 2)
+            self.assertIn("broken.json", message)
             self.assertIn("unlabeled.json", message)
-            # NOTE: the malformed-JSON branch currently reports json.JSONDecodeError's
-            # own message, which doesn't include the file path (unlike the ValueError
-            # branch, e.g. "missing label" above). Worth a small follow-up so both
-            # error kinds are equally easy to locate in a large dataset.
 
     def test_raises_on_empty_directory(self):
         with tempfile.TemporaryDirectory() as directory:

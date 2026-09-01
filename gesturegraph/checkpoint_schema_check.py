@@ -9,6 +9,7 @@ import torch
 from .model import build_model
 
 REQUIRED_KEYS = ("model_state", "labels", "frames", "best_accuracy", "model_name", "ablation", "dropout")
+OPTIONAL_KEYS = ("model_config",)
 
 
 def missing_keys(checkpoint: dict) -> list[str]:
@@ -53,6 +54,20 @@ def validate_dropout(dropout) -> list[str]:
     return []
 
 
+def validate_model_config(model_config) -> list[str]:
+    if model_config is None:
+        return []
+    if not isinstance(model_config, dict):
+        return [f"model_config must be a dict, got {type(model_config).__name__}"]
+    for key in ("pe_dim", "adaptive_dim", "attention_heads"):
+        if key not in model_config:
+            continue
+        value = model_config[key]
+        if not isinstance(value, int) or isinstance(value, bool) or value < 1:
+            return [f"model_config[{key!r}] must be a positive int, got {value!r}"]
+    return []
+
+
 def validate_model_state(model_state) -> list[str]:
     if not isinstance(model_state, dict):
         return [f"model_state must be a dict, got {type(model_state).__name__}"]
@@ -68,13 +83,23 @@ def validate_model_state(model_state) -> list[str]:
     return errors
 
 
-def validate_model_name_buildable(model_name, num_classes: int, frames: int, dropout: float, ablation) -> list[str]:
+def validate_model_loads(model_name, num_classes: int, frames: int, dropout: float, ablation, model_config, model_state) -> list[str]:
     if not isinstance(model_name, str) or not model_name:
         return [f"model_name must be a non-empty string, got {model_name!r}"]
+    resolved_ablation = ablation if isinstance(ablation, str) else "none"
+    resolved_config = model_config if isinstance(model_config, dict) else None
     try:
-        build_model(model_name, num_classes, frames, dropout, ablation if isinstance(ablation, str) else "none")
+        model = build_model(model_name, num_classes, frames, dropout, resolved_ablation, resolved_config)
     except ValueError as error:
         return [f"model_name {model_name!r} is not buildable: {error}"]
+    except TypeError:
+        model = build_model(model_name, num_classes, frames, dropout, resolved_ablation)
+    if not isinstance(model_state, dict):
+        return []
+    try:
+        model.load_state_dict(model_state, strict=True)
+    except RuntimeError as error:
+        return [f"model_state does not match model_name {model_name!r} with the given config: {error}"]
     return []
 
 
@@ -89,11 +114,21 @@ def validate_checkpoint(checkpoint: dict) -> dict:
     errors.extend(validate_best_accuracy(checkpoint["best_accuracy"]))
     errors.extend(validate_dropout(checkpoint["dropout"]))
     errors.extend(validate_model_state(checkpoint["model_state"]))
+    errors.extend(validate_model_config(checkpoint.get("model_config")))
 
     num_classes = len(checkpoint["labels"]) if isinstance(checkpoint["labels"], list) and checkpoint["labels"] else 1
     frames = checkpoint["frames"] if isinstance(checkpoint["frames"], int) and checkpoint["frames"] >= 2 else 64
     dropout = checkpoint["dropout"] if isinstance(checkpoint["dropout"], (int, float)) else 0.15
-    errors.extend(validate_model_name_buildable(checkpoint["model_name"], num_classes, frames, dropout, checkpoint["ablation"]))
+    model_state = checkpoint["model_state"] if isinstance(checkpoint["model_state"], dict) else None
+    errors.extend(validate_model_loads(
+        checkpoint["model_name"],
+        num_classes,
+        frames,
+        dropout,
+        checkpoint["ablation"],
+        checkpoint.get("model_config"),
+        model_state,
+    ))
 
     return {"valid": len(errors) == 0, "errors": errors}
 

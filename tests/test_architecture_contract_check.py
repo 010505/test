@@ -37,7 +37,7 @@ class CheckArchitectureTests(unittest.TestCase):
         self.assertEqual(result["errors"], [])
 
     def test_unregistered_architecture_is_marked_pending_not_failed(self):
-        result = check_architecture("velocity_gated_agcrn", num_classes=6, frames=64)
+        result = check_architecture("agcrn_factorized_adjacency_v2", num_classes=6, frames=64)
         self.assertEqual(result["status"], "pending")
         self.assertEqual(result["errors"], [])
 
@@ -57,12 +57,19 @@ class CheckAllKnownArchitecturesTests(unittest.TestCase):
         by_name = {row["name"]: row for row in results}
         self.assertEqual(by_name["stgcn"]["status"], "pass")
         self.assertEqual(by_name["mlp"]["status"], "pass")
+        self.assertEqual(by_name["velocity_gated_agcrn"]["status"], "pass")
+        self.assertEqual(by_name["gated_agcrn"]["status"], "pass")
+        self.assertEqual(by_name["velocity_agcrn"]["status"], "pass")
+        self.assertEqual(by_name["spectral_pe_qkv_stable"]["status"], "pass")
 
     def test_not_yet_implemented_backbones_are_pending_not_failing(self):
-        results = check_all_known_architectures(num_classes=6, frames=64)
+        results = check_all_known_architectures(
+            names=KNOWN_ARCHITECTURES + ("agcrn_factorized_adjacency_v2",),
+            num_classes=6,
+            frames=64,
+        )
         by_name = {row["name"]: row for row in results}
-        self.assertEqual(by_name["velocity_gated_agcrn"]["status"], "pending")
-        self.assertEqual(by_name["agcrn_factorized_adjacency"]["status"], "pending")
+        self.assertEqual(by_name["agcrn_factorized_adjacency_v2"]["status"], "pending")
 
 
 if __name__ == "__main__":

@@ -63,7 +63,9 @@ def discover_samples(root: str | Path, frames: int = 64) -> list[GestureSample]:
     for path in paths:
         try:
             samples.append(load_sample(path, frames))
-        except (ValueError, TypeError, json.JSONDecodeError) as error:
+        except json.JSONDecodeError as error:
+            errors.append(f"{path}: invalid JSON ({error})")
+        except (ValueError, TypeError) as error:
             errors.append(str(error))
     if errors:
         preview = "\n".join(f"- {item}" for item in errors[:8])

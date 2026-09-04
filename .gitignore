@@ -7,3 +7,27 @@ data/
 venv/
 
 venv/
+
+# Local environments / caches
+.venv/
+.venv-*/
+__pycache__/
+*.pyc
+.pytest_cache/
+.vscode/
+
+# Dataset / large ML artifacts
+data/
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.downloading
+*.baiduyun.p.downloading
+
+# OS files
+Thumbs.db
+.DS_Store
+
+*.pyo
+node_modules/

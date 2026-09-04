@@ -12,9 +12,9 @@ import torch
 from torch import nn
 from torch.utils.data import DataLoader
 
-from .backbones import EXPERIMENTAL_MODEL_NAMES
+from .backbones import EXPERIMENTAL_MODEL_NAMES, LEGACY_EXPERIMENTAL_MODEL_NAMES
 from .data import GestureDataset, discover_samples, stratified_split
-from .model import build_model, FocalLoss
+from .model import build_model
 from .shrec import load_shrec17, load_shrec17_npz
 
 
@@ -73,27 +73,35 @@ def train(args):
     print("Dataset:", dict(sorted(Counter(sample.label for sample in samples).items())))
     print(f"Split: {len(train_samples)} train / {len(val_samples)} validation / {len(test_samples)} official test")
 
-    train_loader = DataLoader(GestureDataset(train_samples, labels, augment=True, augment_level=args.augmentation, temporal_crop=args.temporal_crop), batch_size=args.batch_size, shuffle=True)
+    train_loader = DataLoader(GestureDataset(train_samples, labels, augment=True), batch_size=args.batch_size, shuffle=True)
     val_loader = DataLoader(GestureDataset(val_samples, labels), batch_size=args.batch_size)
     test_loader = DataLoader(GestureDataset(test_samples, labels), batch_size=args.batch_size) if test_samples else None
     device = choose_device(args.device); print("Device:", device)
+    if args.model == "stem_residual_mlp_learnable_values_se":
+        spectral_weighting = "direct_learnable_values_initialized_from_laplacian_eigenvalues"
+    elif args.model == "stem_residual_mlp_gated_se":
+        spectral_weighting = "laplacian_eigenvalue_times_bounded_learnable_gate"
+    elif args.model.startswith("stem_semantic_") or args.model in {
+        "stem_linear_se", "stem_residual_mlp_se", *LEGACY_EXPERIMENTAL_MODEL_NAMES
+    }:
+        spectral_weighting = "laplacian_eigenvalue"
+    else:
+        spectral_weighting = "none"
     model_config = {
         "pe_dim": args.pe_dim,
         "attention_heads": args.attention_heads,
         "adaptive_dim": args.adaptive_dim,
-        "spectral_weighting": "laplacian_eigenvalue",
+        "stem_channels": args.stem_channels,
+        "semantic_hidden": args.semantic_hidden,
+        "spectral_weighting": spectral_weighting,
     }
     model = build_model(args.model, len(labels), args.frames, args.dropout, args.ablation, model_config).to(device)
     parameter_count = sum(parameter.numel() for parameter in model.parameters())
     print(f"Model: {args.model} | parameters: {parameter_count:,} | config: {model_config}")
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=max(args.epochs, 1))
-    if args.loss == "focal":
-        criterion = FocalLoss(len(labels), gamma=args.focal_gamma, label_smoothing=.05)
-        print("Loss: FocalLoss", {"gamma": args.focal_gamma})
-    else:
-        criterion = nn.CrossEntropyLoss(label_smoothing=.05)
-        print("Loss: CrossEntropy")
+    criterion = nn.CrossEntropyLoss(label_smoothing=.05)
+
     output = Path(args.output); output.mkdir(parents=True, exist_ok=True)
     best_accuracy = -1.0; history = []
     for epoch in range(1, args.epochs + 1):
@@ -180,10 +188,8 @@ def build_parser():
     parser.add_argument("--pe-dim", type=int, default=8)
     parser.add_argument("--attention-heads", "--gat-heads", dest="attention_heads", type=int, default=4)
     parser.add_argument("--adaptive-dim", type=int, default=10)
-    parser.add_argument("--loss", default="cross_entropy", choices=["cross_entropy", "focal"])
-    parser.add_argument("--focal-gamma", type=float, default=2.0)
-    parser.add_argument("--augmentation", default="light", choices=["light", "strong"])
-    parser.add_argument("--temporal-crop", action="store_true")
+    parser.add_argument("--stem-channels", type=int, default=32)
+    parser.add_argument("--semantic-hidden", type=int, default=64)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--device", default="auto", choices=["auto", "cpu", "mps", "cuda"])
     return parser

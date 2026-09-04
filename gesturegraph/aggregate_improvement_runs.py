@@ -15,6 +15,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Aggregate repeated GestureGraph improvement runs")
     parser.add_argument("--runs", nargs="+", required=True, help="Run roots containing summary.json")
     parser.add_argument("--output", required=True)
+    parser.add_argument("--control", default=CONTROL, help="Experiment name used for paired deltas")
     args = parser.parse_args()
 
     roots = [Path(path) for path in args.runs]
@@ -24,7 +25,7 @@ def main() -> None:
     if any(list(run) != experiment_order for run in by_run):
         raise ValueError("all runs must contain the same experiments in the same order")
     controls = np.asarray(
-        [run[CONTROL]["official_test_accuracy"] for run in by_run],
+        [run[args.control]["official_test_accuracy"] for run in by_run],
         dtype=np.float64,
     )
 
@@ -72,9 +73,9 @@ def main() -> None:
         "# Three-seed GestureGraph comparison",
         "",
         "Mean ± sample standard deviation across seeds. Delta is paired against the",
-        "ST-GCN control trained with the same seed and validation split.",
+        f"`{args.control}` control trained with the same seed and validation split.",
         "",
-        "| Experiment | Parameters | Official test | Paired delta vs ST-GCN |",
+        f"| Experiment | Parameters | Official test | Paired delta vs {args.control} |",
         "|---|---:|---:|---:|",
     ]
     for row in aggregate:

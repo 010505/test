@@ -75,35 +75,6 @@ class FlatMLP(nn.Module):
         return self.network(x)
 
 
-class FocalLoss(nn.Module):
-    """Focal loss to down-weight easy samples and focus on hard confusable pairs.
-
-    The modulating factor (1-p_t)^gamma suppresses the loss on already-correct
-    predictions, keeping gradient on the misclassified tail (e.g. swipe_x / swipe_v
-    / swipe_plus). An optional per-class weight vector may be supplied via `alpha`.
-    """
-
-    def __init__(self, num_classes: int, gamma: float = 2.0, alpha: float | None = None, label_smoothing: float = 0.0):
-        super().__init__()
-        if gamma < 0:
-            raise ValueError("gamma must be non-negative")
-        self.gamma = gamma
-        self.alpha = alpha
-        self.label_smoothing = label_smoothing
-
-    def forward(self, logits: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
-        log_probs = torch.log_softmax(logits, dim=1)
-        gathered = log_probs.gather(1, targets.unsqueeze(1)).squeeze(1)
-        pt = torch.exp(gathered)
-        loss = -(1 - pt).pow(self.gamma) * gathered
-        if self.alpha is not None:
-            alpha = torch.as_tensor(self.alpha, dtype=logits.dtype, device=logits.device)
-            loss = alpha.gather(0, targets.long()) * loss
-        if self.label_smoothing > 0:
-            loss = loss + self.label_smoothing / logits.shape[1] * log_probs.sum(1)
-        return loss.mean()
-
-
 def build_model(
     name: str,
     num_classes: int,

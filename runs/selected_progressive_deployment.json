@@ -1,0 +1,20 @@
+{
+  "accuracy_model": {
+    "experiment": "04_class_diffusion",
+    "reverse_steps": 4,
+    "prefix_auc_mean": 0.7404761904761905,
+    "full_accuracy_mean": 0.7936507936507938
+  },
+  "recommended_deployment": {
+    "experiment": "04_class_diffusion",
+    "reverse_steps": 2,
+    "prefix_auc_mean": 0.7383994708994709,
+    "full_accuracy_mean": 0.7904761904761904,
+    "online_latency_reduction_vs_four_steps": 0.17054416622029078,
+    "note": "Uses the original checkpoint; set model.inference_steps = 2 after loading."
+  },
+  "not_selected": [
+    "05_gated_class_diffusion",
+    "06_reliability_gated_diffusion"
+  ]
+}

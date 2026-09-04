@@ -72,6 +72,10 @@ def main() -> None:
     parser.add_argument("--input", required=True, help="adjacency_matrices.npz from experiment 3")
     parser.add_argument("--output", required=True, help="Output basename without extension")
     parser.add_argument("--top-k", type=int, default=20)
+    parser.add_argument(
+        "--title",
+        default="GestureGraph experiment 3: fixed and learned Graph WaveNet supports",
+    )
     args = parser.parse_args()
 
     archive = np.load(args.input)
@@ -117,7 +121,7 @@ def main() -> None:
         "(d) Descriptive difference $A_{adp}-A_{phys}$",
         "RdBu_r", -difference_limit, difference_limit, "Support-weight difference", "black",
     )
-    figure.suptitle("GestureGraph experiment 3: fixed and learned Graph WaveNet supports", fontsize=10)
+    figure.suptitle(args.title, fontsize=10)
 
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)

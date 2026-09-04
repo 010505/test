@@ -1,0 +1,59 @@
+[
+  {
+    "family": "fixed_graph_stgcn",
+    "model_name": "stem_residual_mlp_se",
+    "mean_accuracy": 0.7376984126984127,
+    "std_accuracy": 0.013274387844188692,
+    "checkpoints": [
+      "runs/se_semantic_ablation_seed42/04_stem_residual_mlp_se_k21/best.pt",
+      "runs/se_semantic_ablation_seed43/04_stem_residual_mlp_se_k21/best.pt",
+      "runs/se_semantic_ablation_seed44/04_stem_residual_mlp_se_k21/best.pt"
+    ]
+  },
+  {
+    "family": "qkv_attention",
+    "model_name": "stem_semantic_qkv",
+    "mean_accuracy": 0.8099206349206348,
+    "std_accuracy": 0.006769334170330127,
+    "checkpoints": [
+      "runs/se_transfer_seed42/01_stem_semantic_qkv/best.pt",
+      "runs/se_transfer_seed43/01_stem_semantic_qkv/best.pt",
+      "runs/se_transfer_seed44/01_stem_semantic_qkv/best.pt"
+    ]
+  },
+  {
+    "family": "graph_wavenet",
+    "model_name": "stem_semantic_gwnet",
+    "mean_accuracy": 0.7472222222222222,
+    "std_accuracy": 0.0058724795979955115,
+    "checkpoints": [
+      "runs/joint_aggregation_recheck_seed42/03_stem_semantic_gwnet/best.pt",
+      "runs/joint_aggregation_recheck_seed43/03_stem_semantic_gwnet/best.pt",
+      "runs/joint_aggregation_recheck_seed44/03_stem_semantic_gwnet/best.pt"
+    ]
+  },
+  {
+    "family": "agcrn",
+    "model_name": "stem_agcrn_control",
+    "mean_accuracy": 0.8198412698412699,
+    "std_accuracy": 0.016933800232818947,
+    "checkpoints": [
+      "runs/joint_aggregation_recheck_seed42/04_stem_agcrn_control/best.pt",
+      "runs/joint_aggregation_recheck_seed43/04_stem_agcrn_control/best.pt",
+      "runs/joint_aggregation_recheck_seed44/04_stem_agcrn_control/best.pt"
+    ]
+  },
+  {
+    "family": "progressive_early_recognition",
+    "model_name": "04_class_diffusion",
+    "mean_prefix_auc": 0.7404761904761905,
+    "std_prefix_auc": 0.0017347216662217107,
+    "mean_full_accuracy": 0.7936507936507938,
+    "mean_average_decision_ratio": 0.6093055555555555,
+    "checkpoints": [
+      "runs/progressive_seed42/04_class_diffusion/best.pt",
+      "runs/progressive_seed43/04_class_diffusion/best.pt",
+      "runs/progressive_seed44/04_class_diffusion/best.pt"
+    ]
+  }
+]
